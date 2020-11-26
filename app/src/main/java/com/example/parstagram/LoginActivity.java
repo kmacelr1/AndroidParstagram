@@ -101,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                //goTimeLineActivity();
+
                 goMainActivity();
                 Toast.makeText(LoginActivity.this,"Login Success", Toast.LENGTH_SHORT).show();
             }
@@ -117,9 +117,5 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
-    private void goTimeLineActivity() {
-        Intent i = new Intent(this, TimeLineActivity.class);
-        startActivity(i);
-        finish();
-    }
+
 }
