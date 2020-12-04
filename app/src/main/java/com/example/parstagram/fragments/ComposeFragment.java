@@ -53,7 +53,6 @@ public class ComposeFragment extends Fragment {
     private Button btnSubmit;
     private File photoFile;
     public String photoFileName = "photo.jpg";
-    private Button btnLogout;
 
 
 
@@ -91,17 +90,7 @@ public class ComposeFragment extends Fragment {
     public  void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         etCaption = view.findViewById(R.id.etCaption);
         btnTakePicture =  view.findViewById(R.id.btnTakePicture);
-        btnLogout = view.findViewById(R.id.btnLogout);
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                ParseUser.logOut();
-                ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
-                Log.i(TAG, "logout successful");
-                goLoginActivity();
-            }
-        });
         btnTakePicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,6 +115,10 @@ public class ComposeFragment extends Fragment {
                 }
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 savePost(caption, currentUser, photoFile);
+
+                Toast.makeText(getContext(), "Successfully Posted!", Toast.LENGTH_SHORT).show();
+
+
 
 
             }
